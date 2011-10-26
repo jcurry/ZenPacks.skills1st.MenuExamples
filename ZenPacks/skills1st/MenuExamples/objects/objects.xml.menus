@@ -1,0 +1,197 @@
+<?xml version="1.0"?>
+<objects>
+<!-- ('', 'zport', 'dmd', 'zenMenus', 'AdministeredRoleObjects_list') -->
+<object id='/zport/dmd/zenMenus/AdministeredRoleObjects_list' module='Products.ZenModel.ZenMenu' class='ZenMenu'>
+<tomanycont id='zenMenuItems'>
+<object id='addAdministeredRoleDevice' module='Products.ZenModel.ZenMenuItem' class='ZenMenuItem'>
+<property id='zendoc' type='string'>
+Add Device...
+</property>
+<property type="text" id="description" mode="w" >
+Add Device...
+</property>
+<property type="text" id="action" mode="w" >
+dialog_addAdministeredRoleDevice
+</property>
+<property type="boolean" id="isglobal" mode="w" >
+True
+</property>
+<property type="lines" id="permissions" mode="w" >
+('Change Admin Objects',)
+</property>
+<property type="boolean" id="isdialog" mode="w" >
+True
+</property>
+<property type="float" id="ordering" mode="w" >
+90.5
+</property>
+</object>
+<object id='addAdministeredRoleDeviceClass' module='Products.ZenModel.ZenMenuItem' class='ZenMenuItem'>
+<property id='zendoc' type='string'>
+Add Device Class...
+</property>
+<property type="text" id="description" mode="w" >
+Add Device Class...
+</property>
+<property type="text" id="action" mode="w" >
+dialog_addAdministeredRoleDeviceClass
+</property>
+<property type="boolean" id="isglobal" mode="w" >
+True
+</property>
+<property type="lines" id="permissions" mode="w" >
+('Change Admin Objects',)
+</property>
+<property type="boolean" id="isdialog" mode="w" >
+True
+</property>
+<property type="float" id="ordering" mode="w" >
+90.4
+</property>
+</object>
+<object id='addAdministeredRoleGroup' module='Products.ZenModel.ZenMenuItem' class='ZenMenuItem'>
+<property id='zendoc' type='string'>
+Add Group...
+</property>
+<property type="text" id="description" mode="w" >
+Add Group...
+</property>
+<property type="text" id="action" mode="w" >
+dialog_addAdministeredRoleGroup
+</property>
+<property type="boolean" id="isglobal" mode="w" >
+True
+</property>
+<property type="lines" id="permissions" mode="w" >
+('Change Admin Objects',)
+</property>
+<property type="boolean" id="isdialog" mode="w" >
+True
+</property>
+<property type="float" id="ordering" mode="w" >
+90.2
+</property>
+</object>
+<object id='addAdministeredRoleLocation' module='Products.ZenModel.ZenMenuItem' class='ZenMenuItem'>
+<property id='zendoc' type='string'>
+Add Location...
+</property>
+<property type="text" id="description" mode="w" >
+Add Location...
+</property>
+<property type="text" id="action" mode="w" >
+dialog_addAdministeredRoleLocation
+</property>
+<property type="boolean" id="isglobal" mode="w" >
+True
+</property>
+<property type="lines" id="permissions" mode="w" >
+('Change Admin Objects',)
+</property>
+<property type="boolean" id="isdialog" mode="w" >
+True
+</property>
+<property type="float" id="ordering" mode="w" >
+90.1
+</property>
+</object>
+<object id='addAdministeredRoleSystem' module='Products.ZenModel.ZenMenuItem' class='ZenMenuItem'>
+<property id='zendoc' type='string'>
+Add System...
+</property>
+<property type="text" id="description" mode="w" >
+Add System...
+</property>
+<property type="text" id="action" mode="w" >
+dialog_addAdministeredRoleSystem
+</property>
+<property type="boolean" id="isglobal" mode="w" >
+True
+</property>
+<property type="lines" id="permissions" mode="w" >
+('Change Admin Objects',)
+</property>
+<property type="boolean" id="isdialog" mode="w" >
+True
+</property>
+<property type="float" id="ordering" mode="w" >
+90.3
+</property>
+</object>
+<object id='deleteAdministeredRoleObjects' module='Products.ZenModel.ZenMenuItem' class='ZenMenuItem'>
+<property id='zendoc' type='string'>
+Delete Admin Objects...
+</property>
+<property type="text" id="description" mode="w" >
+Delete Admin Objects...
+</property>
+<property type="text" id="action" mode="w" >
+dialog_deleteAdministeredRoleObjects
+</property>
+<property type="boolean" id="isglobal" mode="w" >
+True
+</property>
+<property type="lines" id="permissions" mode="w" >
+('Change Admin Objects',)
+</property>
+<property type="boolean" id="isdialog" mode="w" >
+True
+</property>
+<property type="float" id="ordering" mode="w" >
+80.0
+</property>
+</object>
+</tomanycont>
+</object>
+<!-- ('', 'zport', 'dmd', 'zenMenus', 'AdministratorRole_list') -->
+<object id='/zport/dmd/zenMenus/AdministratorRole_list' module='Products.ZenModel.ZenMenu' class='ZenMenu'>
+<tomanycont id='zenMenuItems'>
+<object id='addAdministratorRole' module='Products.ZenModel.ZenMenuItem' class='ZenMenuItem'>
+<property id='zendoc' type='string'>
+Add Administrator...
+</property>
+<property type="text" id="description" mode="w" >
+Add Administrator...
+</property>
+<property type="text" id="action" mode="w" >
+dialog_addAdministratorRole
+</property>
+<property type="boolean" id="isglobal" mode="w" >
+True
+</property>
+<property type="lines" id="permissions" mode="w" >
+('Manage DMD',)
+</property>
+<property type="boolean" id="isdialog" mode="w" >
+True
+</property>
+<property type="float" id="ordering" mode="w" >
+60.0
+</property>
+</object>
+<object id='delAdministratorRole' module='Products.ZenModel.ZenMenuItem' class='ZenMenuItem'>
+<property id='zendoc' type='string'>
+Del Administrator...
+</property>
+<property type="text" id="description" mode="w" >
+Del Administrator...
+</property>
+<property type="text" id="action" mode="w" >
+dialog_deleteAdministratorsRole
+</property>
+<property type="boolean" id="isglobal" mode="w" >
+True
+</property>
+<property type="lines" id="permissions" mode="w" >
+('Manage DMD',)
+</property>
+<property type="boolean" id="isdialog" mode="w" >
+True
+</property>
+<property type="float" id="ordering" mode="w" >
+70.0
+</property>
+</object>
+</tomanycont>
+</object>
+</objects>

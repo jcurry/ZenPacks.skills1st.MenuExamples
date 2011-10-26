@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:zcml="http://namespaces.zope.org/zcml"
+    xmlns:browser="http://namespaces.zope.org/browser" >
+
+
+    <!-- Includes: Browser Configuration -->
+    <include package=".browser"/>
+
+    <adapter factory=".info.ExampleComponentInfo"
+            for=".ExampleComponent.ExampleComponent"
+             provides=".interfaces.IExampleComponentInfo"
+             />
+
+    <adapter factory=".info.HardDiskInfo"
+            for="Products.ZenModel.HardDisk.HardDisk"
+             provides=".interfaces.IHardDiskInfo"
+             />
+
+
+    <!-- Import directRouter Directive -->
+    <include package="Products.ZenUtils.extdirect.zope" file="meta.zcml"/>
+
+    <!-- 
+        Define the Router and Facade for specific "Add" menu
+        The class field in the directRouter stanza must match with
+        the router class defined in the routers.py in this directory,
+        ie. ExampleDeviceRouter
+
+        Changing the "for" field in the following directRouter and adapter
+           stanzas to for=".ExampleDevice.ExampleDevice"
+           results in the add dialog being displayed but the Add button
+           is inactive.
+    -->
+
+
+    <browser:directRouter
+        name="ExampleDevice_router"
+        for="*"
+        class=".routers.ExampleDeviceRouter"
+        namespace="Zenoss.remote"
+        permission="zenoss.View"
+        />
+
+    <!--
+        The name field in the adapter stanza must match with the parameter
+        to return Zuul.getFacade('this is the bit that must match', self.context)
+        in def _getFacade in routers.py
+
+        The provides field must match with an interface class name defined in
+        interfaces.py in this directory (ie. IExampleDeviceFacade ).
+
+        The factory field must match with a facade class name defined in
+        facades.py in this directory (ie. ExampleDeviceFacade ).
+
+    -->
+
+    <adapter
+        name="exampleDevice"
+        provides=".interfaces.IExampleDeviceFacade"
+        for="*"
+        factory=".facades.ExampleDeviceFacade"
+        />
+
+<!--
+    <browser:page
+        class=".myCommand.MyPredefinedCommandView"
+        name="run_my_predefined_command"
+        for="*"
+        permission="zenoss.ManageDevice"
+        />
+-->
+
+<!--
+    If you want to hardwire to an old skins directory then uncomment the following lines 
+    The Zenoss 3 way to do this is to put template files under the ZenPack's browser/templates directory 
+    Fundamentally, the pt files are identical - it's just where they reside where the convention
+    has changed.
+-->
+
+
+<!--
+<browser:page
+    name="viewHistory"
+    template="./skins/ZenPacks.skills1st.MenuExamples/viewHistory.pt"
+    for="*"
+    permission="zenoss.View"
+    />
+
+<browser:page
+    name="viewNewHistory"
+    template="./skins/ZenPacks.skills1st.MenuExamples/viewNewHistory.pt"
+    for="*"
+    permission="zenoss.View"
+    />
+
+-->
+
+</configure>
+

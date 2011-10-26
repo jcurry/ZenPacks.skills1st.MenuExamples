@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<configure xmlns="http://namespaces.zope.org/browser">
+
+    <!-- A resource directory contains static web content. -->
+    <!-- example is simply a unique name. The directory "resources" is directly under this directory -->
+    <!-- The name "example" in the resourceDirectory stanza must match what follows ++resource++ in viewlet -->
+
+    <resourceDirectory
+        name="example"
+        directory="resources"
+        />
+
+    <!-- Register custom JavaScript for ExampleDevices.  -->
+    <!-- name field can be nearly anything unique 
+         If paths uses /++resource++ then following variable matches resourceDirectory name
+                and can provide a path down from there eg. /js/
+         The filename, ending in .js, does not have to match anything other than the actual file
+         The for statement says only to use this javascript viewlet for devices of object class
+             ExampleDevice (the 2nd ExampleDevice), defined in the file ExampleDevice (1st ExampleDevice)
+             that is located one directory up from here ie       ..       -->
+
+    <viewlet
+        name="js-exampledevice"
+        paths="/++resource++example/js/ExampleDevice.js"
+        weight="10"
+        for="..ExampleDevice.ExampleDevice"
+        manager="Products.ZenUI3.browser.interfaces.IJavaScriptSrcManager"
+        class="Products.ZenUI3.browser.javascript.JavaScriptSrcBundleViewlet"
+        permission="zope2.Public"
+        />
+
+    <!-- This amazing viewlet uses a for stanza to apply to all types of devices
+         Note that the manager stanza is interfaces.IHeadExtraManager
+         This adds in an extra dropdown menu for Components from the Display box
+    -->
+
+    <viewlet
+        name="js-amazing-componentoption"
+        paths="/++resource++example/js/amazing.js"
+        weight="9"
+        for="Products.ZenModel.Device.Device"
+        manager="Products.ZenUI3.browser.interfaces.IHeadExtraManager"
+        class="Products.ZenUI3.browser.javascript.JavaScriptSrcBundleViewlet"
+        permission="zope2.Public"
+        />
+
+    <!-- Define an add device entry
+    -->
+    <viewlet
+        name="js-add_example_device_option"
+        paths="/++resource++example/js/add_example_device_option.js"
+        weight="10"
+        manager="Products.ZenUI3.browser.interfaces.IJavaScriptSrcManager"
+        class="Products.ZenUI3.browser.javascript.JavaScriptSrcBundleViewlet"
+        permission="zope2.Public"
+        />
+
+    <!-- Define a new entry on the Action "gear cog wheel" menu
+    -->
+    <viewlet
+        name="js-my-action-menu-item"
+        paths="/++resource++example/js/run_my_predefined_command.js"
+        weight="10"
+        manager="Products.ZenUI3.browser.interfaces.IJavaScriptSrcManager"
+        class="Products.ZenUI3.browser.javascript.JavaScriptSrcBundleViewlet"
+        permission="zope2.Public"
+        />
+
+    <!-- Add a command window for showing ouput for a command run from an action menu
+         The name parameter ties in with the "target" field in the js handler
+         In the class field, .. takes you back to the ZenPack base directory where
+         there must be a file called command.py..........
+         which contains a class called MyPredefinedCommandView
+    -->
+
+    <page
+        name="run_my_predefined_command"
+        for="*"
+        class="..command.MyPredefinedCommandView"
+        permission="zenoss.ManageDevice"
+        />
+
+    <!-- Define a viewlet that puts up a new footer bar menu
+         The action is defined in myFooterMenu.js under the js subdir in the resources subdirectory
+    -->
+
+<!-- This really blows everything away!
+
+      <viewlet
+          name="js-myFooterMenu"
+          paths="/++resource++example/js/myFooterMenu.js"
+          weight="10"
+          manager="Products.ZenUI3.browser.interfaces.IJavaScriptSrcManager"
+          class="Products.ZenUI3.browser.javascript.JavaScriptSrcBundleViewlet"
+          permission="zope2.Public"
+          />
+-->
+
+
+    <!-- Define a page for the myExampleMenu1 menu item, defined by the page template file
+         in the subdirectory templates, in the file myExampleMenuOne.pt.  
+         The name field must match with the value of an "action" field.  If there is a valid,
+         reachable myExampleMenuOne.pt in the ZenPack skins directory then this new-style
+         zcml wiring takes precedence.
+    
+         The "for" field defines what objects this page definition is valid for.
+         for="*" would be valid for everything.  for="../ExampleDevice.ExampleDevice"  
+         would limit it to just objects of type ExampleDevice as defined in the parent of this directory.
+         If there are valid definitions both here and in the ZenPack skins directory and the zcml has a 
+         limiting "for" field, then this will prevail for those objects it matches and the version
+         in the skins dir will prevail otherwise.
+    -->
+    <page
+        name="myExampleMenuOne"
+        for="..ExampleDevice.ExampleDevice"
+        template="templates/myExampleMenuOne.pt"
+        permission="zenoss.View"
+        />
+
+    <!-- myExampleMenuTwo is applicable to all devices - for stanza has * -->
+
+    <page
+        name="myExampleMenuTwo"
+        for="*"
+        template="templates/myExampleMenuTwo.pt"
+        permission="zenoss.View"
+        />
+
+    <!--
+        Next two page definitions are to override the default Modifications menu
+        Note that the viewHistory.pt in the templates subdir has to be slightly
+        modified from that in $ZENHOME/Products/ZenModel/skins/zenmodel as  
+        "test" is not defined when run from configure.zcml 
+    -->
+
+    <page
+        name="viewHistory"
+        for="..ExampleDevice.ExampleDevice"
+        template="templates/viewHistory.pt"
+        permission="zenoss.View"
+        />
+
+    <page
+        name="viewNewHistory"
+        for="..ExampleDevice.ExampleDevice"
+        template="templates/viewNewHistory.pt"
+        permission="zenoss.View"
+        />
+
+    <!--
+        Next two page definitions define the output from the dropdown menus
+        from My Example Menu One. The  dropdown menus are defined as objects .
+    -->
+
+    <page
+        name="myDropDownMenu1"
+        for="*"
+        template="templates/myDropDownMenu1.pt"
+        permission="zenoss.View"
+        />
+
+    <page
+        name="dialog_myDropDownMenu2"
+        for="*"
+        template="templates/dialog_myDropDownMenu2.pt"
+        permission="zenoss.View"
+        />
+
+
+</configure>

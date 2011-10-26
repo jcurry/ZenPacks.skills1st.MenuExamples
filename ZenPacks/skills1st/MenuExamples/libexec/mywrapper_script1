@@ -1,0 +1,14 @@
+#!/bin/bash
+###########################################################################
+# Author:	Jane Curry
+# Date:		October 14th 2011
+# Modified:
+#
+# Expects 2 parameters which it simply echos
+###########################################################################
+set -x
+echo `date` $1 $2 > /tmp/mywrapper_script.log
+
+
+echo "$1" "$2"
+

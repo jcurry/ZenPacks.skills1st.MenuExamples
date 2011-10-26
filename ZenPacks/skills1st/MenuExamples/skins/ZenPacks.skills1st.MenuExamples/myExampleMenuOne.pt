@@ -1,0 +1,99 @@
+<tal:block metal:use-macro="here/templates/macros/page2">
+<tal:block metal:fill-slot="contentPane">
+
+<form method="post"
+    name="myExampleMenuOne" tal:attributes="action string:${here/absolute_url_path}/${template/id}">
+
+<tal:block metal:define-macro="myExampleMenuOne" tal:define="tabletitle string:My Example 1 Menu Stuff from skins directory">
+
+<tal:block metal:use-macro="here/zenuimacros/macros/zentable">
+<tal:block metal:fill-slot="zentablecontents">
+
+<!-- BEGIN TABLE CONTENTS -->
+    <tr>
+      <td class="tableheader" align=left>SNMP Description</td>
+      <td class="tablevalues" tal:content=here/snmpDescr> </td>
+      <td class="tableheader" align=left>SNMP OID</td>
+      <td class="tablevalues" tal:content=here/snmpOid> </td>
+    </tr>
+    <tr>
+      <td class="tableheader" align=left>SNMP System Contact</td>
+      <td class="tablevalues" tal:content=here/snmpContact> </td>
+      <td class="tableheader" align=left>SNMP System Location</td>
+      <td class="tablevalues" tal:content=here/snmpLocation> </td>
+    </tr>
+<!-- END TABLE CONTENTS -->
+</tal:block>
+</tal:block>
+</tal:block>
+<tr>
+</tr>
+
+<!-- Now add on the standard display of all device-level graphs  -->
+
+<tal:block metal:define-macro="objectperf" tal:define="tabletitle string:Performance graphs for this Device">
+</tal:block> 
+
+<table metal:use-macro="here/viewPerformanceDetail/macros/objectperf" />
+
+</form>
+
+
+<form method="post" name="myExampleObjectMenu" 
+        tal:attributes="action here/absolute_url_path">
+<input type="hidden" name="zenScreenName" tal:attributes="value string:myExampleMenuOne"/>
+<input type="hidden" name="redirect" value="true"/>
+
+
+<tal:block tal:define="objects here/groups/objectValuesAll;
+    editable python:here.checkRemotePerm('ZenCommon', here);
+    tableName string:exampleOneObjectMenu;
+    batch python:here.ZenTableManager.getBatch(tableName,objects); 
+    tabletitle string:My Example One Menus from Objects;
+    menu_id string:ExampleOneMenuObjects_list">
+    <input type='hidden' name='tableName' tal:attributes="value tableName" />
+        <tal:block metal:use-macro="here/zenuimacros/macros/zentable">
+        <tal:block metal:fill-slot="zentablecontents">
+
+        <!-- BEGIN TABLE CONTENTS -->
+
+    <tr tal:define="message request/message | string:">
+        <td class=tableheader colspan=4 tal:content="message" />
+    </tr>
+    <tr>
+        <th tal:replace="structure python:here.ZenTableManager.getTableHeader(
+                    tableName,'id','Link to Group ')"/>
+        <th tal:replace="structure python:here.ZenTableManager.getTableHeader(
+                    tableName,'id','Group Name')"/>
+        <th tal:replace="structure python:here.ZenTableManager.getTableHeader(
+                    tableName,'id','Group Description')"/>
+  </tr>
+
+  <tal:block tal:repeat="mybatch batch">
+  <tr tal:define="odd repeat/mybatch/odd"
+      tal:attributes="class python:odd and 'odd' or 'even'">
+    <td class="tablevalues"> 
+       <input type="hidden" name="myGroupIds" 
+              tal:attributes="value mybatch/id"/>
+       <input type="checkbox" style="float:left" name="myDelGroupIds"
+              tal:condition="editable"
+              tal:attributes="value mybatch/id"/>
+        <div style="float:left" 
+                tal:define=" link python:mybatch.getPrettyLink()"
+                tal:content="structure link"/>
+    </td>
+    <td class="tablevalues" tal:content="mybatch/id"/>
+    <td class="tablevalues" tal:content="mybatch/description"/>
+  </tr>
+  </tal:block>
+        <!-- END TABLE CONTENTS -->
+
+        </tal:block>
+        </tal:block>
+</tal:block>
+</form>
+
+
+</tal:block>
+</tal:block>
+              
