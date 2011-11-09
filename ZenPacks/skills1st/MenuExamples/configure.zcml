@@ -65,15 +65,6 @@
         />
 
 <!--
-    <browser:page
-        class=".myCommand.MyPredefinedCommandView"
-        name="run_my_predefined_command"
-        for="*"
-        permission="zenoss.ManageDevice"
-        />
--->
-
-<!--
     If you want to hardwire to an old skins directory then uncomment the following lines 
     The Zenoss 3 way to do this is to put template files under the ZenPack's browser/templates directory 
     Fundamentally, the pt files are identical - it's just where they reside where the convention

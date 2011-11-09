@@ -125,6 +125,16 @@
         permission="zenoss.View"
         />
 
+    <!-- myExampleMenuThree is applicable to all devices - for stanza has * -->
+    <!-- This menu puts up a form to prompt for input and then uses that input in the output display -->
+
+    <page
+        name="myExampleMenuThree"
+        for="*"
+        template="templates/myExampleMenuThree.pt"
+        permission="zenoss.View"
+        />
+
     <!--
         Next two page definitions are to override the default Modifications menu
         Note that the viewHistory.pt in the templates subdir has to be slightly

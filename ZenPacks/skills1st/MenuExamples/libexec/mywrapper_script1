@@ -6,9 +6,9 @@
 #
 # Expects 2 parameters which it simply echos
 ###########################################################################
-set -x
-echo `date` $1 $2 > /tmp/mywrapper_script.log
+#set -x
 
 
-echo "$1" "$2"
+echo "$1" "$2 $3 $4"
+echo `date` $1 $2  $3 $4 > /tmp/mywrapper_script.log
 
