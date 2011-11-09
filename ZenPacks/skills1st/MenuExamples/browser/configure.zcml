@@ -85,7 +85,6 @@
     -->
 
 <!-- This really blows everything away!
--->
       <viewlet
           name="js-myFooterMenu"
           paths="/++resource++example/js/myFooterMenu.js"
@@ -94,6 +93,7 @@
           class="Products.ZenUI3.browser.javascript.JavaScriptSrcBundleViewlet"
           permission="zope2.Public"
           />
+-->
 
 
     <!-- Define a page for the myExampleMenu1 menu item, defined by the page template file

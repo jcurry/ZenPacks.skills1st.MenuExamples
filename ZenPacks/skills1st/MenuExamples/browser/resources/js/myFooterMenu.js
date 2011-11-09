@@ -22,7 +22,7 @@ Ext.ComponentMgr.onAvailable('footer_bar', function(config) {
                                 win.show();
                             }
                         }]
-                });
+                }]);
 
     });
 
