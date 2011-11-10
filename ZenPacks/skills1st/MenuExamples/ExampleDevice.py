@@ -42,15 +42,25 @@ class ExampleDevice(Device):
             , 'permissions' 	: ( Permissions.view,) },
             )
 
-    def createComment(self, mycomment='', REQUEST=''):
+    # This function called by mydropDownMenu1.pt
+    # The parameter "comments" must match the name parameter on the
+    #   input line and these both need to match the object attribute you are changing
+    # The name of the function must match with the pt file dialog_buttons section, with
+    #    the name field for the OK input eg.
+    #               <input tal:attributes="type string:submit;
+    #                        value string:OK"
+    #                        name="createComment:method" />
+
+
+    def createComment(self, comments='', REQUEST=''):
       """
         Set comments attribute for a device
       """
-      self.comments = mycomment
+      self.comments = comments
       if REQUEST:
             messaging.IMessageSender(self).sendToBrowser(
                 'Device comment set',
-                'Device comment created as %s ' % mycomment
+                'Device comment created as %s ' % comments
             )
             return self.callZenScreen(REQUEST)
 

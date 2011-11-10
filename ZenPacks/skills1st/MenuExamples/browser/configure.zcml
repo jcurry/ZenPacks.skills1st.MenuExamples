@@ -113,11 +113,16 @@
           permission="zope2.Public"
           />
 
-    <!-- Define a page for the myExampleMenu1 menu item, defined by the page template file
-         in the subdirectory templates, in the file myExampleMenuOne.pt.  
-         The name field must match with the value of an "action" field.  If there is a valid,
-         reachable myExampleMenuOne.pt in the ZenPack skins directory then this new-style
-         zcml wiring takes precedence.
+    <!-- Define a page for the myExampleMenuOne menu item, defined by the page template file
+         in the subdirectory templates, in the file myExampleMenuOne.pt.  This pt file provides
+         the link to the drop-down menus defined in the objects.xml file via the line with
+               menu_id string:ExampleOneMenuObjects_list
+
+         The name field in the following page definitions must match with the any value of an 
+         "action" field that is defined in the factory_type_information of an object class.  
+
+         If there is a valid, reachable myExampleMenuOne.pt in the ZenPack skins directory 
+         then this new-style zcml wiring takes precedence.
     
          The "for" field defines what objects this page definition is valid for.
          for="*" would be valid for everything.  for="../ExampleDevice.ExampleDevice"  
@@ -125,7 +130,12 @@
          If there are valid definitions both here and in the ZenPack skins directory and the zcml has a 
          limiting "for" field, then this will prevail for those objects it matches and the version
          in the skins dir will prevail otherwise.
+
+         TODO:  Change the myExampleMenuOne stuff to use router / facade mechanism rather than pt files.
+
+
     -->
+
     <page
         name="myExampleMenuOne"
         for="..ExampleDevice.ExampleDevice"
@@ -141,6 +151,38 @@
         template="templates/myExampleMenuTwo.pt"
         permission="zenoss.View"
         />
+
+    <!-- Next two stanzas are for the dropdown menus that are defined in
+         objects.xml.  The name field must match with the action field in the MenuItem
+         definition in objects.xml (ie. myDropDownMenu1 / myDropDownMenu2 ).  The layout
+         for these menus is in templates/myDropDownMenu1.pt and
+         templates/myDropDownMenu2.pt respectively.
+
+         myDropDownMenu1 deliberately limits the scope to 
+            for="..ExampleDevice.ExampleDevice"
+         as templates/myDropDownMenu1.pt uses the createComment method which is only
+         defined for the ExampleDevice object class.  The result is that for devices of
+         other object classes, the submit window simply hangs and can be closed harmlessly.
+ 
+         For ExampleDevice devices note that after clicking the OK button, control is 
+         returned to the defaultdetails view as this is the default view as defined in 
+         the factory information for a device.
+    -->
+
+    <page
+        name="myDropDownMenu1"
+        for="..ExampleDevice.ExampleDevice"
+        template="templates/myDropDownMenu1.pt"
+        permission="zenoss.View"
+        />
+
+    <page
+        name="myDropDownMenu2"
+        for="*"
+        template="templates/myDropDownMenu2.pt"
+        permission="zenoss.View"
+        />
+
 
     <!--
         Next two page definitions are to override the default Modifications menu
@@ -167,20 +209,5 @@
         Next two page definitions define the output from the dropdown menus
         from My Example Menu One. The  dropdown menus are defined as objects .
     -->
-
-    <page
-        name="myDropDownMenu1"
-        for="*"
-        template="templates/myDropDownMenu1.pt"
-        permission="zenoss.View"
-        />
-
-    <page
-        name="myDropDownMenu2"
-        for="*"
-        template="templates/myDropDownMenu2.pt"
-        permission="zenoss.View"
-        />
-
 
 </configure>

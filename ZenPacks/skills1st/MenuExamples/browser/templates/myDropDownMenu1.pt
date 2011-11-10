@@ -12,6 +12,10 @@
 
 <div id="dialog_buttons">
 
+<!-- Note that after clicking the OK button, control is returned to the defaultdetails view
+         as this is the default view as defined in the factory information for a device.
+-->
+
 <input tal:attributes="type string:submit;
                         value string:OK"
                         name="createComment:method" />
