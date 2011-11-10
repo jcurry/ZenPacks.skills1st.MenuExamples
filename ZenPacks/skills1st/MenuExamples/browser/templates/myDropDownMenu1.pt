@@ -1,40 +1,28 @@
-<tal:block metal:use-macro="here/templates/macros/page2">
-<tal:block metal:fill-slot="contentPane">
+<h2>Add device details</h2>
 
 <form method="post"
-    name="myDropDownMenu1" tal:attributes="action string:${here/absolute_url_path}/${template/id}">
+    name="createComment" tal:attributes="action context/absolute_url_path">
+    
+    <table>
+    <tr><td>
+    <span id="comment_label" style="color:white;">Comment: </span>
+    </td><td>
+        <input id="newComment" name="comments" style="width:200px">
+    </td></tr>
 
-<tal:block metal:define-macro="myDropDownMenu1" tal:define="tabletitle string:Page reached from mydropDownMenu1">
+<div id="dialog_buttons">
 
-<tal:block metal:use-macro="here/zenuimacros/macros/zentable">
-<tal:block metal:fill-slot="zentablecontents">
+<input tal:attributes="type string:submit;
+                        value string:OK"
+                        name="createComment:method" />
 
-<!-- BEGIN ExampleDevice TABLE CONTENTS -->
-    <tr>
-      <td class="tableheader" align=left>Name</td>
-      <td class="tablevalues" tal:content=here/titleOrId> </td>
-    </tr>
-    <tr>
-      <td class="tableheader" align=left>IP address</td>
-      <td class="tablevalues" tal:content=here/manageIp> </td>
-    </tr>
-    <tr>
-      <td class="tableheader" align=right>SNMP sysName</td>
-      <td class="tablevalues" tal:content=here/snmpSysName> </td>
-    </tr>
-    <tr>
-      <td class="tableheader" align=left>SNMP Description</td>
-      <td class="tablevalues" tal:content=here/snmpDescr> </td>
-    </tr>
-<!-- END ExampleDevice TABLE CONTENTS -->
-</tal:block>
-</tal:block>
-</tal:block>
-<tr>
-</tr>
+<input tal:attributes="id string:dialog_cancel;
+                        type string:button;
+                        value string:Cancel;
+                        onclick string:$$('dialog').hide()" />
 
+</div>
+</table>
+<br>
 </form>
-
-</tal:block>
-</tal:block>
               

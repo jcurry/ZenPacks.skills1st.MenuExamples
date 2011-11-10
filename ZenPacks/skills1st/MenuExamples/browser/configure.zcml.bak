@@ -56,7 +56,6 @@
         />
 
     <!-- Define a new entry on the Action "gear cog wheel" menu
-         for the device list page
     -->
     <viewlet
         name="js-my-action-menu-item"
@@ -83,35 +82,19 @@
 
     <!-- Define a viewlet that puts up a new footer bar menu
          The action is defined in myFooterMenu.js under the js subdir in the resources subdirectory
-         The weight field doesn't seem to change the position of this option on the
-         footer bar but don't set weight="1" or it doesn't show up at all
     -->
 
+<!-- This really blows everything away!
       <viewlet
           name="js-myFooterMenu"
           paths="/++resource++example/js/myFooterMenu.js"
-          weight="4"
+          weight="10"
           manager="Products.ZenUI3.browser.interfaces.IJavaScriptSrcManager"
           class="Products.ZenUI3.browser.javascript.JavaScriptSrcBundleViewlet"
           permission="zope2.Public"
           />
+-->
 
-      <!-- Add an item to the "gear" Action menu for a specific device
-           Note the IHeadExtraManager in the manager field
-
-           for field makes this menu applicable to all device classes
-              ie. any class under Device
-      -->
-
-      <viewlet
-          name="device-gear-menu"
-          paths="/++resource++example/js/deviceGearMenu.js"
-          weight="9"
-          for="Products.ZenModel.Device.Device"
-          manager="Products.ZenUI3.browser.interfaces.IHeadExtraManager"
-          class="Products.ZenUI3.browser.javascript.JavaScriptSrcBundleViewlet"
-          permission="zope2.Public"
-          />
 
     <!-- Define a page for the myExampleMenu1 menu item, defined by the page template file
          in the subdirectory templates, in the file myExampleMenuOne.pt.  
@@ -133,11 +116,11 @@
         permission="zenoss.View"
         />
 
-    <!-- myExampleMenuTwo is applicable only to ExampleDevice objects in for field -->
+    <!-- myExampleMenuTwo is applicable to all devices - for stanza has * -->
 
     <page
         name="myExampleMenuTwo"
-        for="..ExampleDevice.ExampleDevice"
+        for="*"
         template="templates/myExampleMenuTwo.pt"
         permission="zenoss.View"
         />
@@ -176,9 +159,9 @@
         />
 
     <page
-        name="myDropDownMenu2"
+        name="dialog_myDropDownMenu2"
         for="*"
-        template="templates/myDropDownMenu2.pt"
+        template="templates/dialog_myDropDownMenu2.pt"
         permission="zenoss.View"
         />
 

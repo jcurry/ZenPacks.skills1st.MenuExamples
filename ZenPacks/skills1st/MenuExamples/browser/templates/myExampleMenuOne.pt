@@ -22,6 +22,12 @@
       <td class="tableheader" align=left>SNMP System Location</td>
       <td class="tablevalues" tal:content=here/snmpLocation> </td>
     </tr>
+    <tr>
+      <td class="tableheader" align=left>Device comment</td>
+      <td class="tablevalues" tal:content=here/comments> </td>
+    </tr>
+    <tr>
+    </tr>
 <!-- END TABLE CONTENTS -->
 </tal:block>
 </tal:block>

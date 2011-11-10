@@ -114,7 +114,7 @@ My Drop Down Menu 2...
 My Drop Down Menu 2...
 </property>
 <property type="text" id="action" mode="w" >
-dialog_myDropDownMenu2
+myDropDownMenu2
 </property>
 <property type="boolean" id="isglobal" mode="w" >
 True

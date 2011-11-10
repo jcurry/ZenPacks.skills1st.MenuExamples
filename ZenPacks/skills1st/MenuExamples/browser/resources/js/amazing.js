@@ -4,7 +4,7 @@ Zenoss.nav.appendTo('Component', [{
     xtype: 'componentpanel',
     action: function(node, target, combo) {
         var uid = combo.contextUid;
-        alert(uid)
+        alert(uid);
     }        }]);
 
 /* Next line simply pops up a message on the screen

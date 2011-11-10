@@ -1,6 +1,5 @@
 from Products.ZenModel.Device import Device
 from Products.ZenRelations.RelSchema import ToManyCont, ToOne
-from Products.ZenWidgets import messaging
 from copy import deepcopy
 from AccessControl import Permissions
 
@@ -41,17 +40,5 @@ class ExampleDevice(Device):
             , 'action'          : 'myExampleMenuTwo'
             , 'permissions' 	: ( Permissions.view,) },
             )
-
-    def createComment(self, mycomment='', REQUEST=''):
-      """
-        Set comments attribute for a device
-      """
-      self.comments = mycomment
-      if REQUEST:
-            messaging.IMessageSender(self).sendToBrowser(
-                'Device comment set',
-                'Device comment created as %s ' % mycomment
-            )
-            return self.callZenScreen(REQUEST)
 
 
