@@ -51,3 +51,13 @@ class IExampleDeviceFacade(IFacade):
     def add_ExampleDevice(self, deviceIp, community, comment):
         """Add a device of class ExampleDevice"""
 
+# The name of the IFacade class here ( IAppFacade ) must match what is defined in an
+#   adapter stanza's provides=".interfaces. this_is_the_bit_that_must_match"
+#   ie. IAppFacade in configure.zcml
+# The method name and parameters must match those defined for the facade that implements
+#   IAppFacade in facades.py (ie. myFacadeFunc )
+
+class ImyAppFacade(IFacade):
+    def myFacadeFunc(self, ob, comments, rackSlot):
+        """ Modify comments / rackSlot attributes for a device object"""
+

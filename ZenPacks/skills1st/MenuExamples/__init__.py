@@ -65,7 +65,7 @@ class ZenPack(ZenPackBase):
          #
          dc.setZenProperty('zPythonClass', 'ZenPacks.skills1st.MenuExamples.ExampleDevice')
          #
-         #Create an instance of this device class, checking first whether sucha an instance exists
+         #Create an instance of this device class, checking first whether such a an instance exists
 
          if dc.devices._getOb('ExampleDevice1', None): return
          myInst = dc.createInstance('ExampleDevice1')

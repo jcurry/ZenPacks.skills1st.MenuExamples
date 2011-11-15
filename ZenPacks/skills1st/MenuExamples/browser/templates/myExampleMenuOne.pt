@@ -4,6 +4,12 @@
 <form method="post"
     name="myExampleMenuOne" tal:attributes="action string:${here/absolute_url_path}/${template/id}">
 
+<!-- Note the tabletitle of "My Example 1 Menu Stuff from V3 directory" which distinguishes this
+     V3-style menu from the V2-style menu defined under the skins subdirectory
+     This menu also differs from the V2 version by including the comments field for the device.  Other
+     than these differences, the menu should be the same.
+-->
+
 <tal:block metal:define-macro="myExampleMenuOne" tal:define="tabletitle string:My Example 1 Menu Stuff from V3 directory">
 
 <tal:block metal:use-macro="here/zenuimacros/macros/zentable">
@@ -43,6 +49,15 @@
 <table metal:use-macro="here/viewPerformanceDetail/macros/objectperf" />
 
 </form>
+
+
+<!-- Add on a table to display Groups for this device
+     Note the form title of "My Example One Menus from Objects"
+     This form also has an extra dropdown menu called by the line
+           menu_id string:ExampleOneMenuObjects_list
+     ExampleOneMenuObjects_list is defined in objects/objects.xml
+     with 2 menuitems, myDropDownMenu1 and myDropDownMenu2.
+-->
 
 
 <form method="post" name="myExampleObjectMenu" 

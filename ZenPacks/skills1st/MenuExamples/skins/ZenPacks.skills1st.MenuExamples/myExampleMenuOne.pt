@@ -39,6 +39,15 @@
 </form>
 
 
+<!-- Add on a table to display Groups for this device
+     Note the form title of "My Example One Menus from Objects"
+     This form also has an extra dropdown menu called by the line
+           menu_id string:ExampleOneMenuObjects_list
+     ExampleOneMenuObjects_list is defined in objects/objects.xml
+     with 2 menuitems, myDropDownMenu1 and myDropDownMenu2.
+
+-->
+
 <form method="post" name="myExampleObjectMenu" 
         tal:attributes="action here/absolute_url_path">
 <input type="hidden" name="zenScreenName" tal:attributes="value string:myExampleMenuOne"/>

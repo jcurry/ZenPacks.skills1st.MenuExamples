@@ -8,6 +8,7 @@ from Products.Zuul.facades import ZuulFacade
 from Products.Zuul.utils import ZuulMessageFactory as _t
 
 from .interfaces import IExampleDeviceFacade
+from .interfaces import ImyAppFacade
 
 # The ZuulFacade class name, ExampleDeviceFacade, must match the name specified
 #  in the factory field of an adapter stanza in configure.zcml
@@ -50,4 +51,20 @@ class ExampleDeviceFacade(ZuulFacade):
             zProperties=zProperties)
 
         return True, jobStatus.id
+
+
+class myAppFacade(ZuulFacade):
+    implements(ImyAppFacade)
+
+
+    # Note that the the facade function, myFacadeFunc has 3 parameters
+    #  The object is passed in addition to the comment and rackSlot
+
+    def myFacadeFunc(self, ob, comments, rackSlot):
+        """ Modifies comments and rackSlot attributes for a device """
+
+        ob.comments = comments
+        ob.rackSlot = rackSlot
+ 
+        return True, _t(" Comments and rackSlot attributes set for device %s" % (ob.id))
 

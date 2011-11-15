@@ -64,6 +64,35 @@
         factory=".facades.ExampleDeviceFacade"
         />
 
+    <!--
+        The name field in the adapter stanza must match with the parameter
+        to return Zuul.getFacade('this is the bit that must match', self.context)
+        in def _getFacade in routers.py
+
+        The provides field must match with an interface class name defined in
+        interfaces.py in this directory (ie. ImyAppFacade ).
+
+        The factory field must match with a facade class name defined in
+        facades.py in this directory (ie. myAppFacade ).
+
+    -->
+
+    <browser:directRouter
+        name="myApp_router"
+        for="*"
+        class=".routers.myAppRouter"
+        namespace="Zenoss.remote"
+        permission="zenoss.View"
+        />
+
+    <adapter
+        name="myAppAdapter"
+        provides=".interfaces.ImyAppFacade"
+        for="*"
+        factory=".facades.myAppFacade"
+        />
+
+
 <!--
     If you want to hardwire to an old skins directory then uncomment the following lines 
     The Zenoss 3 way to do this is to put template files under the ZenPack's browser/templates directory 

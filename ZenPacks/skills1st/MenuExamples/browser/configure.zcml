@@ -185,10 +185,13 @@
 
 
     <!--
-        Next two page definitions are to override the default Modifications menu
+        Next page definition is to override the default Modifications menu
         Note that the viewHistory.pt in the templates subdir has to be slightly
         modified from that in $ZENHOME/Products/ZenModel/skins/zenmodel as  
         "test" is not defined when run from configure.zcml 
+
+        Note that this particular override of the Modifications left-hand menu
+        is only valid for devices of object class ExampleDevice.
     -->
 
     <page
@@ -197,17 +200,5 @@
         template="templates/viewHistory.pt"
         permission="zenoss.View"
         />
-
-    <page
-        name="viewNewHistory"
-        for="..ExampleDevice.ExampleDevice"
-        template="templates/viewNewHistory.pt"
-        permission="zenoss.View"
-        />
-
-    <!--
-        Next two page definitions define the output from the dropdown menus
-        from My Example Menu One. The  dropdown menus are defined as objects .
-    -->
 
 </configure>

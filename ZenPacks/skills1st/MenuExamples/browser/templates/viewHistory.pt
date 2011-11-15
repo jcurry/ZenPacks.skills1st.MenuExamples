@@ -1,6 +1,10 @@
 <tal:block metal:use-macro="here/templates/macros/page2">
 <tal:block metal:fill-slot="contentPane">
 
+<!-- Note tabletitle of "Changes for ${here/getId} from MenuExample ZenPack viewHistory by zcml wiring"
+     to distinguish it from the similar menu supplied from under the skins subdirectory.
+-->
+
 <tal:block tal:define="
 tabletitle string:Changes for ${here/getId} from MenuExample ZenPack viewHistory by zcml wiring
                       ">
