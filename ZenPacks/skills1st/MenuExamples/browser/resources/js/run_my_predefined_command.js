@@ -1,7 +1,6 @@
-// New menu option on the cog wheel
+// New menu option on the device list cog wheel menu, context-configure-menu
 
 Ext.ComponentMgr.onAvailable('context-configure-menu', function(config) {
-//Ext.ComponentMgr.onAvailable('device_configure_menu' function(config) {
   var origOnGet = config.onGetMenuItems;
   config.onGetMenuItems = function(uid) {
     var result = origOnGet.call(this, uid) || [];

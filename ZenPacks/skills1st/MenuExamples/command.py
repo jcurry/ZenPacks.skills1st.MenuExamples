@@ -13,6 +13,8 @@ class MyPredefinedCommandView(StreamingView):
 # Setup a logging file
         logfile = open('/usr/local/zenoss/zenoss/log/example_logging.log', 'a')
         logfile.write('Start logging')
+        # data is a list that will contain 2 elemets:
+        #   the url argument and the uid
         data = unjson(self.request.get('data'))
         logfile.write(' data is \n' % (data))
         try:
@@ -29,9 +31,6 @@ class MyPredefinedCommandView(StreamingView):
         except:
             logfile.write('No uids \n')
             arg4 = ''
-#        facade = getFacade('device', self.context)
-#        organizer = facade._getObject(uids[0])
-#        logfile.write(' organizer is %s ' % (organizer))
 
         libexec = os.path.join(os.path.dirname(__file__), 'libexec')
 
