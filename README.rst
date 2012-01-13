@@ -298,13 +298,13 @@ Screenshots
 
 .. _Latest Package for Python 2.6: https://github.com/jcurry/ZenPacks.skills1st.MenuExamples/blob/master/dist/ZenPacks.skills1st.MenuExamples-1.0.3-py2.6.egg?raw=true
 
-.. |menus1| image:: http://github.com/jcurry/ZenPacks.ZenSystems.olsonPower/raw/master/screenshots/menus1.jpg
-.. |menus2| image:: http://github.com/jcurry/ZenPacks.ZenSystems.olsonPower/raw/master/screenshots/menus2.jpg
-.. |menus3| image:: http://github.com/jcurry/ZenPacks.ZenSystems.olsonPower/raw/master/screenshots/menus3.jpg
-.. |menus4| image:: http://github.com/jcurry/ZenPacks.ZenSystems.olsonPower/raw/master/screenshots/menus4.jpg
-.. |menus5| image:: http://github.com/jcurry/ZenPacks.ZenSystems.olsonPower/raw/master/screenshots/menus5.jpg
-.. |menus6| image:: http://github.com/jcurry/ZenPacks.ZenSystems.olsonPower/raw/master/screenshots/menus6.jpg
-.. |menus7| image:: http://github.com/jcurry/ZenPacks.ZenSystems.olsonPower/raw/master/screenshots/menus7.jpg
+.. |menus1| image:: http://github.com/jcurry/ZenPacks.skills1st.MenuExamples/raw/master/screenshots/menus1.jpg
+.. |menus2| image:: http://github.com/jcurry/ZenPacks.skills1st.MenuExamples/raw/master/screenshots/menus2.jpg
+.. |menus3| image:: http://github.com/jcurry/ZenPacks.skills1st.MenuExamples/raw/master/screenshots/menus3.jpg
+.. |menus4| image:: http://github.com/jcurry/ZenPacks.skills1st.MenuExamples/raw/master/screenshots/menus4.jpg
+.. |menus5| image:: http://github.com/jcurry/ZenPacks.skills1st.MenuExamples/raw/master/screenshots/menus5.jpg
+.. |menus6| image:: http://github.com/jcurry/ZenPacks.skills1st.MenuExamples/raw/master/screenshots/menus6.jpg
+.. |menus7| image:: http://github.com/jcurry/ZenPacks.skills1st.MenuExamples/raw/master/screenshots/menus7.jpg
 
 
 Acknowledgements
