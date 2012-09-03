@@ -15,7 +15,7 @@ Requirements & Dependencies
     * Zenoss Versions Supported: 3.0
     * External Dependencies: 
     * ZenPack Dependencies:
-    * Installation Notes: zenhub and zopectl restart after installing this ZenPack.
+    * Installation Notes: Restart zenoss entirely after installation
     * Configuration:
 
 Components
@@ -213,7 +213,7 @@ A viewlet entry is required in browser/configure.zcml that points to the javascr
 run\_my\_predefined\_command.js.  A page entry is also required to show the output from
 the command, where the class field defines an entry in command.py (in the top-level
 directory) to actually run the command. The MyPredefinedCommandView class in command.py
-also demonstrates logging to a specified logfile ( /usr/local/zenoss/zenoss/log/example\_logging.log) 
+also demonstrates logging to a specified logfile ( $ZENHOME/log/example\_logging.log) 
 and uses both literal parameters and parameters passed from the calling window.  The actual 
 command is in the libexec subdirectory as /mywrapper\_script1.  It simply echos 4 parameters.
 
@@ -275,6 +275,9 @@ $ZENHOME/local.  Install from $ZENHOME/local with:
 
 zenpack --link --install ZenPacks.skills1st.MenuExamples
 
+Restart zenoss completely after installation.
+
+
 
 Change History
 ==============
@@ -282,6 +285,8 @@ Change History
    * Initial Release
 * 1.0.3
    * All menus now working
+* 2.0
+   * Tested with Zenoss Core 4.2
 
 Screenshots
 ===========

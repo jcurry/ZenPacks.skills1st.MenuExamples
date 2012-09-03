@@ -194,7 +194,7 @@ A viewlet entry is required in browser/configure.zcml that points to the javascr
 run\_my\_predefined\_command.js.  A page entry is also required to show the output from
 the command, where the class field defines an entry in command.py (in the top-level
 directory) to actually run the command. The MyPredefinedCommandView class in command.py
-also demonstrates logging to a specified logfile ( /usr/local/zenoss/zenoss/log/example\_logging.log) 
+also demonstrates logging to a specified logfile ( $ZENHOME/zenoss/log/example\_logging.log) 
 and uses both literal parameters and parameters passed from the calling window.  The actual 
 command is in the libexec subdirectory as /mywrapper\_script1.  It simply echos 4 parameters.
 

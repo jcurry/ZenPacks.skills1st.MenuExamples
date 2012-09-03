@@ -11,7 +11,10 @@ class MyPredefinedCommandView(StreamingView):
 
     def stream(self):
 # Setup a logging file
-        logfile = open('/usr/local/zenoss/zenoss/log/example_logging.log', 'a')
+        lf = os.path.join(os.environ['ZENHOME'], 'log/example_logging.log')
+        logfile = open(lf, 'a')
+
+#        logfile = open('/usr/local/zenoss/zenoss/log/example_logging.log', 'a')
         logfile.write('Start logging')
         # data is a list that will contain 2 elemets:
         #   the url argument and the uid
