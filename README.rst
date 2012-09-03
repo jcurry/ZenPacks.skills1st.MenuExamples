@@ -303,7 +303,7 @@ Screenshots
 .. External References Below. Nothing Below This Line Should Be Rendered
 
 .. _Latest Package for Python 2.6: https://github.com/jcurry/ZenPacks.skills1st.MenuExamples/blob/master/dist/ZenPacks.skills1st.MenuExamples-1.0.3-py2.6.egg?raw=true
-.. _Latest Package for Python 2.7: https://github.com/downloads/jcurry/ZenPacks.ZenSystems.ApcUps/ZenPacks.skills1st.MenuExamples-2.0-py2.7.egg
+.. _Latest Package for Python 2.7: https://github.com/downloads/jcurry/ZenPacks.skills1st.MenuExamples/ZenPacks.skills1st.MenuExamples-2.0-py2.7.egg
 
 .. |menus1| image:: http://github.com/jcurry/ZenPacks.skills1st.MenuExamples/raw/master/screenshots/menus1.jpg
 .. |menus2| image:: http://github.com/jcurry/ZenPacks.skills1st.MenuExamples/raw/master/screenshots/menus2.jpg
